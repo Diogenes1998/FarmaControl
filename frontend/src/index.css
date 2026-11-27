@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TOKENS DE DISEÑO (generan clases como bg-farma-azul)
+   ============================================================ */
+@theme {
+  --color-farma-azul: #0369a1;
+  --color-farma-azul-oscuro: #075985;
+  --color-farma-verde: #059669;
+  --color-farma-fondo: #f0f9ff;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+
+  /* Animaciones de las vistas públicas (sidebar, carrusel y chat) */
+  --animate-entrar-derecha: entrar-derecha 0.25s ease-out;
+  --animate-aparecer: aparecer 0.2s ease-out;
+  --animate-subir: subir 0.3s ease-out;
+
+  @keyframes entrar-derecha {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes subir {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ============================================================
+   ESTILOS BASE
+   ============================================================ */
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--color-gray-800);
+    background-color: var(--color-farma-fondo);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Color del texto seleccionado con el mouse */
+  ::selection {
+    background-color: var(--color-sky-200);
+    color: var(--color-gray-900);
+  }
+
+  /* Contorno visible al navegar con teclado (Tab) */
+  :focus-visible {
+    outline: 2px solid var(--color-farma-azul);
+    outline-offset: 2px;
+  }
+
+  /* Tailwind v4 deja los botones con cursor normal: lo restauramos */
+  button:not(:disabled),
+  label:has(> input[type="file"]) {
+    cursor: pointer;
+  }
+}
+
+/* ============================================================
+   ACCESIBILIDAD: usuarios que prefieren menos animación
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   IMPRESIÓN DEL ACTA DE RECEPCIÓN (Etapa 9)
+   ============================================================ */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  body {
+    background-color: #ffffff;
+  }
+}

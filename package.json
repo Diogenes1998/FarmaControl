@@ -1,0 +1,23 @@
+{
+  "name": "farmacontrol",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FarmaControl: sistema web para droguerías con catálogo, recepción técnica, inventario por lotes y asistente con IA (Google Gemini).",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "instalar:todo": "npm install && npm --prefix frontend install",
+    "frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
+  },
+  "license": "UNLICENSED"
+}
