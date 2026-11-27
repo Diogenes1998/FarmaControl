@@ -1,0 +1,22 @@
+# Dependencias (se reinstalan con npm install)
+node_modules/
+
+# Credenciales: NUNCA subir el .env (sí se sube .env.example)
+.env
+.env.*
+!.env.example
+
+# Compilado del frontend (se genera con npm run build)
+frontend/dist/
+
+# Registros
+logs
+*.log
+npm-debug.log*
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
